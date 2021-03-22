@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/CourseDb');
+mongoose.connect('mongodb+srv://userone:userone@ictak.vcicb.mongodb.net/CourseDb?retryWrites=true&w=majority');
+
 
 const Schema = mongoose.Schema;
 
@@ -14,7 +15,8 @@ const UserSchema = new Schema({
     hobbies:String,
     mothertongue:String,
     languages:String,
-    education:String
+    education:String,
+    number:String
 });
 
 var Userdata = mongoose.model('userdata',UserSchema);

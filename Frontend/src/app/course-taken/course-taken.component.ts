@@ -18,7 +18,6 @@ export class CourseTakenComponent implements OnInit {
    let profIdC=localStorage.getItem("profId");
     this.profService.getCourses(profIdC).subscribe((data)=>{
       this.courses=JSON.parse(JSON.stringify(data));
-      console.log(this.courses);
     })
   }
 
@@ -26,6 +25,18 @@ export class CourseTakenComponent implements OnInit {
   {
     localStorage.setItem("detailsCourseId",course._id.toString());
       this.router.navigate(['details-coursetaken']); 
+  }
+
+  deleteCourse(course){
+    alert("Delete");
+    console.log(course._id);
+    this.profService.deleteCourse(course._id);
+     
+    let profIdC=localStorage.getItem("profId");
+    this.profService.getCourses(profIdC).subscribe((data)=>{
+      this.courses=JSON.parse(JSON.stringify(data));
+    })
+    
   }
 
 }
